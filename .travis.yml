@@ -1,19 +1,29 @@
 language: ruby
 cache:
-  - bundler
+- bundler
+before_install:
+- openssl aes-256-cbc -K $encrypted_b0fe68cad3e4_key -iv $encrypted_b0fe68cad3e4_iv
+  -in certs/pvt_key -out ~\/.ssh/gem-private_key.pem -d
 install:
-  - bundle install
+- bundle install
 rvm:
-  - 1.9.3
-  - 2.0
-  - 2.1
-  - 2.2
+- 1.9.3
+- 2.0
+- 2.1
+- 2.2
 notifications:
   email:
     recipients:
-      - sensu-plugin@sensu-plugins.io
+    - sensu-plugin@sensu-plugins.io
     on_success: change
     on_failure: always
-
 script:
-  - 'bundle exec rake default'
+- bundle exec rake default
+deploy:
+  provider: rubygems
+  api_key:
+    secure: g/pEHlzosYXrSmG7gymhMFJaCK+9TtzPyCcsYCPxiybEX1Mc5DMteS7bxEWUJ0FF9eNjuJuFtH6Oro3RTIEnT5vLkW5Xht5375zcXxezuhj+GUHHgXqZSZJbk4b8ML8SK4Z/s1o16n5+29DeipI6hNpAs4WVFVxr+EfDLelf9NxCvs6iTG17uPZJ0/shLkNJL12z6wLzZtYVClI4jldCRXV8tQyvSDIviNzQTwGM7SHVoCqxF8/omh+tZZQHtxA1I/jHR51TBBPjEqWrX13ex+Ao48FiIbKUZAIsSQTzdhqpK8VaSnUCnXRittsAUuuY/tYr3ze0BllC8etMYynCcDCodgDMLFeLZO7tXf+7uQxb7jHn30uKDiG7Utp9qwqltbMSfZ8W6SkZz5ud49hMyRBvzfEFx4K8oNxMO/L4DoZlfP2gf+B79C3r93/GmHjPeUqyi/8BAkEIr7LX04p4bn79FCsltZua8TxDmZENPB362+hxHtBxtZvW8vfAMQ1nkHUkRY//Y5UOTQrSYvOs9My/KWPPpqMr8UXMkQEKwIiP/JFZb4zbqIl1Yhrah0ifSH/HmsgOeOqO3Rdhki90CAK+SQTIg4IvlrHyvRK8sM9AN+LWdzVlaDBhq95o1L1rGP+Ln4mhkvmvj/g/GwggPpFeNSN19DeD0FKtaDuO+/Q=
+  gem: sensu-plugins-couchdb
+  on:
+    tags: true
+    repo: sensu-plugins/sensu-plugins-couchdb
