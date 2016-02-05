@@ -11,6 +11,8 @@
 
 ## Files
 
+- metrics-couchdb.rb
+
 ## Usage
 
 ## Installation
