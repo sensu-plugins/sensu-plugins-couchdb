@@ -1,9 +1,6 @@
 language: ruby
 cache:
 - bundler
-before_install:
-- openssl aes-256-cbc -K $encrypted_b0fe68cad3e4_key -iv $encrypted_b0fe68cad3e4_iv
-  -in certs/pvt_key -out ~\/.ssh/gem-private_key.pem -d
 install:
 - bundle install
 rvm:
@@ -27,3 +24,6 @@ deploy:
   on:
     tags: true
     repo: sensu-plugins/sensu-plugins-couchdb
+dd:
+- openssl aes-256-cbc -K $encrypted_b0fe68cad3e4_key -iv $encrypted_b0fe68cad3e4_iv
+  -in certs/pvt_key -out certs/gem-private_key.pem -d
