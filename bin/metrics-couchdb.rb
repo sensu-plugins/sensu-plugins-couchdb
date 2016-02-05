@@ -68,10 +68,10 @@ class CouchDB < Sensu::Plugin::Metric::CLI::Graphite
       metrics.update(dot_it(json))
       timestamp = Time.now.to_i
       metrics.each do |k, v|
-        if k.end_with? ".description"
+        if k.end_with? '.description'
           next
         end
-        if v == nil
+        if v.nil?
           next
         end
         output [config[:scheme], k].join('.'), v, timestamp
@@ -88,11 +88,11 @@ class CouchDB < Sensu::Plugin::Metric::CLI::Graphite
         if prefix
           dot_it value, "#{prefix}.#{key}"
         else
-          dot_it value, "#{key}"
+          dot_it value, key.to_s
         end
       end.reduce(&:merge)
     else
-      {prefix => object}
+      { prefix => object }
     end
   end
 end
