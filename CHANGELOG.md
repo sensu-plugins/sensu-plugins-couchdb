@@ -3,6 +3,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
+###[Unreleased]
+
 ## 0.0.1 - 2016-02-04
 ### Changed
 - adjusted dependencies
@@ -13,4 +15,4 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 - update certs
 - metrics-couchdb.rb
 
-[unreleased]: https://github.com/sensu-plugins/sensu-plugins-couchdb/compare/0.0.1...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-couchdb/compare/0.0.1...HEAD
