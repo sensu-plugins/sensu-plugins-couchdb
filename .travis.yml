@@ -12,12 +12,6 @@ rvm:
 - 2.1
 - 2.2
 notifications:
-  irc:
-    channels:
-      - "chat.freenode.net#sensu"
-    on_success: [always]
-    on_failure: [always]
-    skip_join: true
   email:
     recipients:
     - sensu-plugin@sensu-plugins.io
@@ -35,5 +29,8 @@ deploy:
   on:
     tags: true
     all_branches: true
+    rvm: 1.9.3
+    rvm: 2.0
+    rvm: 2.1
     rvm: 2.2
     repo: sensu-plugins/sensu-plugins-couchdb
