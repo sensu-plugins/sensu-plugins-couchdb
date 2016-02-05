@@ -9,7 +9,7 @@ else
   require_relative 'lib/sensu-plugins-couchdb'
 end
 
-pvt_key = '~/certs/gem-private_key.pem'
+pvt_key = 'certs/gem-private_key.pem'
 
 Gem::Specification.new do |s|
   s.authors                = ['Sensu-Plugins and contributors']
