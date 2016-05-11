@@ -73,7 +73,7 @@ class CouchDB < Sensu::Plugin::Metric::CLI::Graphite
         if v.nil?
           next
         end
-        if ! v.is_a? Numeric
+        unless v.is_a? Numeric
           next
         end
         output [config[:scheme] + '.databases.' + config[:database], k].join('.'), v, timestamp
